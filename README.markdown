@@ -24,23 +24,39 @@ Geoffrey Grosenbach, [Topfunky Corporation](http://topfunky.com) and [PeepCode S
 
 # USAGE
 
-See TFHppleHTMLTest.m and TFHppleXMLTest.m in HppleTests for samples.
-
 <pre>
 #import "TFHpple.h"
 
 NSString * pathPath = [[NSBundle mainBundle] pathForResource:@"index" ofType: @"html"];
-NSData * data       = [NSData dataWithContentsOfFile: dataPath];
+NSData   * data     = [NSData dataWithContentsOfFile: dataPath];
+TFHpple  * document = [[TFHpple alloc] initWithHTMLData:data];
 
-TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
-NSArray * elements  = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
+// You can search in the whole document.
+TFHppleXPathResult * result  = [document searchWithXPathQuery:@"//a[@class='sponsor']"];
 
-TFHppleElement * element = [elements objectAtIndex:0];
-[e content];              // Tag's innerHTML
-[e tagName];              // "a"
-[e attributes];           // NSDictionary of href, class, id, etc.
-[e objectForKey:@"href"]; // Easy access to single attribute
+TFHppleElement * element = [result objectAtIndex:0];
+[element content];              // Tag's innerHTML
+[element tagName];              // "a"
+[element attributes];           // NSDictionary of href, class, id, etc.
+[element objectForKey:@"href"]; // Easy access to single attribute
+
+// You can search starting from a subnode.
+TFHppleElement * subnode = [document peekAtSearchWithXPathQuery:@"//div[@id='footer']"];
+result = [subnode searchWithXPathQuery:@"div"]; // direct "div" children of subnode
+
+// The TFHppleXPathResult behaves like an array.
+[result count];            // number of matching elements
+[result objectAtIndex: 3]; // the 4th element
+[result isEmpty];          // BOOL that determines whether the result is empty or not
+
+// You can transform it into an array.
+NSArray* arr = [result array];
+forin(TFHppleElement* node in arr) {
+  NSLog(@"%@", node.tagName);
+}
 </pre>
+
+See TFHppleHTMLTest.m and TFHppleXMLTest.m in HppleTests for more examples.
 
 # TODO
 
