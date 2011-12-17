@@ -28,23 +28,14 @@
 //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TFHpple.h"
-#import "XPathQuery.h"
 
 @implementation TFHpple
-
-- (xmlXPathContextPtr) getOrCreateXPathContext {
-  if (xpathContext == NULL) {
-    xpathContext = xmlXPathNewContext(xmlDocument);
-  }
-  return xpathContext;
-}
 
 @synthesize data, isXML;
 
 - (void) dealloc
 {
-  if (xpathContext != NULL) xmlXPathFreeContext(xpathContext);
-  xmlFreeDoc(xmlDocument);
+  if(xmlDocument != NULL) xmlFreeDoc(xmlDocument);
   [data release];
   
   [super dealloc];
@@ -71,8 +62,6 @@
     [self dealloc];
     return nil;
   }
-  
-  xpathContext = NULL;
 
   return self;
 }
@@ -102,37 +91,15 @@
 #pragma mark -
 
 // Returns all elements at xPath.
-- (NSArray *) searchWithXPathQuery:(NSString *)xPathOrCSS
+- (TFXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS
 {
-  xmlXPathContextPtr context = [self getOrCreateXPathContext];
-  if (context == NULL) {
-    NSLog(@"Unable to create XPath context");
-    return nil;
-  }
-  
-  NSArray * detailNodes = nil;
-  if (isXML) {
-    detailNodes = PerformXMLXPathQuery(data, xPathOrCSS);
-  } else {
-    detailNodes = PerformHTMLXPathQuery(data, xPathOrCSS);
-  }
-
-  NSMutableArray * hppleElements = [NSMutableArray array];
-  for (id node in detailNodes) {
-    [hppleElements addObject:[TFHppleElement hppleElementWithNode:node]];
-  }
-  return hppleElements;
+  return [[[TFXPathResult alloc] initWithXPathQuery:xPathOrCSS inDocument:xmlDocument] autorelease];
 }
 
 // Returns first element at xPath
 - (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS
 {
-  NSArray * elements = [self searchWithXPathQuery:xPathOrCSS];
-  if ([elements count] >= 1) {
-    return [elements objectAtIndex:0];
-  }
-
-  return nil;
+  return [[self searchWithXPathQuery:xPathOrCSS] firstElement];
 }
 
 @end

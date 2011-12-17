@@ -63,10 +63,10 @@
 //  doc.search("//p[@class='posted']")
 - (void) testSearchesWithXPath
 {
-  NSArray * a = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
-  STAssertEquals((int)[a count], 2, nil);
+  TFXPathResult * result = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
+  STAssertEquals((int)[result count], 2, nil);
 
-  TFHppleElement * e = [a objectAtIndex:0];
+  TFHppleElement * e = [result objectAtIndex:0];
   STAssertTrue([e isKindOfClass: [TFHppleElement class]], nil);
 }
 
@@ -80,10 +80,10 @@
 
 - (void) testSearchesByNestedXPath
 {
-  NSArray * a = [doc searchWithXPathQuery:@"//div[@class='column']//strong"];
-  STAssertEquals((int)[a count], 5, nil);
+  TFXPathResult * result = [doc searchWithXPathQuery:@"//div[@class='column']//strong"];
+  STAssertEquals((int)[result count], 5, nil);
   
-  TFHppleElement * e = [a objectAtIndex:0];
+  TFHppleElement * e = [result objectAtIndex:0];
   STAssertEqualObjects([e content], @"PeepCode", nil);
 }
 

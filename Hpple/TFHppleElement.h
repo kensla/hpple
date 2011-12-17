@@ -28,41 +28,60 @@
 //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <libxml/xpath.h>
 
+#import "TFXPathResult.h"
+
+@class TFXPathResult;
 
 @interface TFHppleElement : NSObject {
 @private
-  
-  NSDictionary * node;
-  TFHppleElement *parent;
+  xmlNodePtr node;
+  TFXPathResult* parentResult;
+  TFHppleElement* parentNode;
 }
 
-- (id) initWithNode:(NSDictionary *) theNode;
+- (id) initWithNode: (xmlNodePtr) node ofXPathResult: (TFXPathResult*) result;
+- (id) initWithNode: (xmlNodePtr) node ofParentNode: (TFHppleElement*) parent;
 
-+ (TFHppleElement *) hppleElementWithNode:(NSDictionary *) theNode;
++ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofXPathResult: (TFXPathResult*) result;
++ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofParentNode: (TFHppleElement*) parent;
+
+#pragma  mark -
 
 // Returns this tag's innerHTML content.
-@property (nonatomic, readonly) NSString *content;
+- (NSString*) content;
 
 // Returns the name of the current tag, such as "h3".
-@property (nonatomic, readonly) NSString *tagName;
+- (NSString*) tagName;
+
+// the node's parent
+- (TFHppleElement*) parent;
 
 // Returns tag attributes with name as key and content as value.
 //   href  = 'http://peepcode.com'
 //   class = 'highlight'
-@property (nonatomic, readonly) NSDictionary *attributes;
-
-// Returns the children of a given node
-@property (nonatomic, readonly) NSArray *children;
-
-// Returns the first child of a given node
-@property (nonatomic, readonly) TFHppleElement *firstChild;
-
-// the parent of a node
-@property (nonatomic, retain, readonly) TFHppleElement *parent;
+// use allAttributes if you need to distinguish different attributes with the same name
+- (NSDictionary*) attributes;
+- (NSArray*) allAttributes;
+// returns the number of attributes
+- (NSUInteger) attributeCount;
 
 // Provides easy access to the content of a specific attribute, 
 // such as 'href' or 'class'.
 - (NSString *) objectForKey:(NSString *) theKey;
+
+// Returns the children of a given node
+- (NSArray*) children;
+// Returns the first child of a given node
+- (TFHppleElement*) firstChild;
+// returns the number of children
+- (NSUInteger) childrenCount;
+- (NSUInteger) count;
+
+#pragma  mark -
+
+- (TFXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS;
+- (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS;
 
 @end

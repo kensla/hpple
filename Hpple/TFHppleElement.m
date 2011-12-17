@@ -29,93 +29,171 @@
 
 
 #import "TFHppleElement.h"
-
-static NSString * const TFHppleNodeContentKey           = @"nodeContent";
-static NSString * const TFHppleNodeNameKey              = @"nodeName";
-static NSString * const TFHppleNodeChildrenKey          = @"nodeChildArray";
-static NSString * const TFHppleNodeAttributeArrayKey    = @"nodeAttributeArray";
-static NSString * const TFHppleNodeAttributeNameKey     = @"attributeName";
-
-@interface TFHppleElement ()
-@property (nonatomic, retain, readwrite) TFHppleElement *parent;
-@end
+#import "TFHppleElementAttribute.h"
 
 @implementation TFHppleElement
-@synthesize parent;
 
 - (void) dealloc
 {
-  [node release];
-  [parent release];
+  [parentResult release];
+  
   [super dealloc];
 }
 
-- (id) initWithNode:(NSDictionary *) theNode
-{
+- (id) initWithNode:(xmlNodePtr)theNode {
   if (!(self = [super init]))
     return nil;
-
-  [theNode retain];
+  
   node = theNode;
-
+  parentNode = nil;
+  parentResult = nil;
+  
   return self;
 }
 
-+ (TFHppleElement *) hppleElementWithNode:(NSDictionary *) theNode {
-  return [[[[self class] alloc] initWithNode:theNode] autorelease];
+- (id) initWithNode: (xmlNodePtr) theNode ofXPathResult: (TFXPathResult*) result {
+  if (!(self = [self initWithNode:theNode]))
+    return nil;
+  parentResult = [result retain];
+  return self;
+}
+
+- (id) initWithNode: (xmlNodePtr) theNode ofParentNode: (TFHppleElement*) parent {
+  if (!(self = [self initWithNode:theNode]))
+    return nil;
+  parentNode = [parentNode retain];
+  return self;
+}
+
++ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofXPathResult: (TFXPathResult*) result {
+  return [[[self alloc] initWithNode: node ofXPathResult: result] autorelease];
+}
+
++ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofParentNode: (TFHppleElement*) parent {
+  return [[[self alloc] initWithNode: node ofParentNode:parent] autorelease];
 }
 
 #pragma mark -
 
 - (NSString *) content
 {
-  return [node objectForKey:TFHppleNodeContentKey];
+  xmlChar* content = xmlNodeGetContent(node);
+  NSString* result = [NSString stringWithCString: (char*) content encoding: NSUTF8StringEncoding];
+  xmlFree(content); // TODO: is this ok? does NSString copy the data? maybe we should directly use node->content
+  return result;
 }
-
 
 - (NSString *) tagName
 {
-  return [node objectForKey:TFHppleNodeNameKey];
+  // TODO: is this ok? does NSString copy the data?
+  return [NSString stringWithCString: (char*) node->name encoding: NSUTF8StringEncoding];
 }
 
-- (NSArray *) children
-{
-  NSMutableArray *children = [NSMutableArray array];
-  for (NSDictionary *child in [node objectForKey:TFHppleNodeChildrenKey]) {
-      TFHppleElement *element = [TFHppleElement hppleElementWithNode:child];
-      element.parent = self;
-      [children addObject:element];
-  }
-  return children;
+- (TFHppleElement*) parent {
+  return parentNode;
 }
-
-- (TFHppleElement *) firstChild
-{
-  NSArray * children = self.children;
-  if (children.count)
-    return [children objectAtIndex:0];
-  return nil;
-}
-
 
 - (NSDictionary *) attributes
 {
-  NSMutableDictionary * translatedAttributes = [NSMutableDictionary dictionary];
-  for (NSDictionary * attributeDict in [node objectForKey:TFHppleNodeAttributeArrayKey]) {
-    [translatedAttributes setObject:[attributeDict objectForKey:TFHppleNodeContentKey]
-                             forKey:[attributeDict objectForKey:TFHppleNodeAttributeNameKey]];
+  NSMutableDictionary * result = [NSMutableDictionary dictionary];
+  for (TFHppleElementAttribute* attribute in self.allAttributes) {
+    [result setValue:[attribute value] forKey:[attribute name]];
+  }  
+  return result;
+}
+
+- (NSArray*) allAttributes {
+  NSMutableArray* result = [NSMutableArray array];
+  xmlAttrPtr attribute = node->properties;
+  while (attribute) {    
+    [result addObject: [TFHppleElementAttribute hppleElementAttributeWithAttribute:attribute ofElement:self]];
+    attribute = attribute->next;
   }
-  return translatedAttributes;
+  return result;
+}
+
+- (NSUInteger) attributeCount {
+  NSUInteger count = 0;
+  xmlAttrPtr attribute = node->properties;
+  while (attribute) {    
+    count++;
+    attribute = attribute->next;
+  }
+  return count;
 }
 
 - (NSString *) objectForKey:(NSString *) theKey
 {
-  return [[self attributes] objectForKey:theKey];
+  xmlChar* value = xmlGetProp(node, BAD_CAST [theKey cStringUsingEncoding:NSUTF8StringEncoding]);
+  if(value == NULL) return nil;
+  NSString* str = [NSString stringWithCString: (char*) value encoding:NSUTF8StringEncoding];
+  xmlFree(value); // TODO: is this ok? does NSString copy the data?
+  return str;
 }
 
-- (id) description
+- (NSArray *) children
 {
-  return [node description];
+  NSMutableArray *result = [NSMutableArray array];
+  xmlNodePtr child = node->children;
+  while (child) {    
+    [result addObject: [TFHppleElement hppleElementWithNode:child ofParentNode: self]];
+    child = child->next;
+  }
+  return result;
+}
+
+- (TFHppleElement *) firstChild
+{
+  xmlNodePtr child = node->children;
+  if (child) {
+    return [TFHppleElement hppleElementWithNode:child ofParentNode: self];
+  } else {
+    return nil;
+  }
+}
+
+- (NSUInteger) childrenCount {
+  NSUInteger count = 0;
+  xmlNodePtr child = node->children;
+  while (child) {    
+    count++;
+    child = child->next;
+  }
+  return count;
+}
+
+- (NSUInteger) count {
+  return self.childrenCount;
+}
+
+#pragma  mark -
+
+- (TFXPathResult *) searchWithXPathQuery:(NSString *)query {
+  // create XPath context
+  xmlXPathContextPtr context = xmlXPathNewContext(node->doc);
+  if (context == NULL) {
+    NSLog(@"Unable to create XPath context");
+    return nil;
+  }
+  // set subnode as context
+  context->node = node;
+  
+  // create XPath object
+  xmlXPathObjectPtr object = xmlXPathEvalExpression(BAD_CAST [query cStringUsingEncoding:NSUTF8StringEncoding], context);
+  if (object == NULL) {
+    NSLog(@"Unable to evaluate XPath query");
+    xmlXPathFreeContext(context);
+    return nil;
+  }
+  
+  TFXPathResult* result = [[[TFXPathResult alloc] initWithXPathObject:object] autorelease];
+  xmlXPathFreeContext(context);
+  
+  return result;
+}
+
+- (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS {
+  return [[self searchWithXPathQuery:xPathOrCSS] firstElement];
 }
 
 @end
