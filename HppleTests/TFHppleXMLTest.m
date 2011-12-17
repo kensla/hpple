@@ -56,17 +56,16 @@
 
 - (void) testInitializesWithXMLData
 {
-  STAssertNotNil(doc.data, nil);
   STAssertTrue([doc isKindOfClass: [TFHpple class]], nil);
 }
 
 //  item/title,description,link
 - (void) testSearchesWithXPath
 {
-  NSArray * items = [doc searchWithXPathQuery:@"//item"];
-  STAssertEquals((int)[items count], 0x0f, nil);
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//item"];
+  STAssertEquals((int)[result count], 0x0f, nil);
 
-  TFHppleElement * e = [items objectAtIndex:0];
+  TFHppleElement * e = [result objectAtIndex:0];
   STAssertTrue([e isKindOfClass: [TFHppleElement class]], nil);
 }
 
@@ -80,10 +79,10 @@
 
 - (void) testSearchesByNestedXPath
 {
-  NSArray * elements = [doc searchWithXPathQuery:@"//item/title"];
-  STAssertEquals((int)[elements count], 0x0f, nil); 
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//item/title"];
+  STAssertEquals((int)[result count], 0x0f, nil); 
  
-  TFHppleElement * e = [elements objectAtIndex:0];
+  TFHppleElement * e = [result objectAtIndex:0];
   STAssertEqualObjects([e content], @"Objective-C for Rubyists", nil);
 }
 

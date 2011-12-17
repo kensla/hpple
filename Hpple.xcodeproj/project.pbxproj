@@ -15,7 +15,6 @@
 		8AA8BDBF149CA7E500132C6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA8BDA6149CA7E400132C6B /* Foundation.framework */; };
 		8AA8BDE0149CA9A900132C6B /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDDD149CA9A900132C6B /* TFHpple.m */; };
 		8AA8BDE1149CA9A900132C6B /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDDF149CA9A900132C6B /* TFHppleElement.m */; };
-		8AA8BDE5149CA9BE00132C6B /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDE4149CA9BE00132C6B /* XPathQuery.m */; };
 		8AA8BDE9149CA9FE00132C6B /* HppleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDE8149CA9FE00132C6B /* HppleAppDelegate.m */; };
 		8AA8BDED149CAA5900132C6B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BDEC149CAA5900132C6B /* MainWindow.xib */; };
 		8AA8BDFE149CAD8600132C6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDFD149CAD8600132C6B /* main.m */; };
@@ -27,6 +26,8 @@
 		8AA8BE22149CB53300132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE20149CB53300132C6B /* InfoPlist.strings */; };
 		8AA8BE2D149CB8DF00132C6B /* feed.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE2B149CB8DF00132C6B /* feed.rss */; };
 		8AA8BE2E149CB8DF00132C6B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE2C149CB8DF00132C6B /* index.html */; };
+		8AA8BE46149CD41100132C6B /* TFHppleXPathResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE45149CD41100132C6B /* TFHppleXPathResult.m */; };
+		8AA8BE4A149CEF6300132C6B /* TFHppleElementAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE49149CEF6200132C6B /* TFHppleElementAttribute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +53,6 @@
 		8AA8BDDD149CA9A900132C6B /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Hpple/TFHpple.m; sourceTree = SOURCE_ROOT; };
 		8AA8BDDE149CA9A900132C6B /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Hpple/TFHppleElement.h; sourceTree = SOURCE_ROOT; };
 		8AA8BDDF149CA9A900132C6B /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = Hpple/TFHppleElement.m; sourceTree = SOURCE_ROOT; };
-		8AA8BDE3149CA9BE00132C6B /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Hpple/XPath/XPathQuery.h; sourceTree = SOURCE_ROOT; };
-		8AA8BDE4149CA9BE00132C6B /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Hpple/XPath/XPathQuery.m; sourceTree = SOURCE_ROOT; };
 		8AA8BDE7149CA9FE00132C6B /* HppleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HppleAppDelegate.h; path = App/HppleAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		8AA8BDE8149CA9FE00132C6B /* HppleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HppleAppDelegate.m; path = App/HppleAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		8AA8BDEC149CAA5900132C6B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = App/en.lproj/MainWindow.xib; sourceTree = SOURCE_ROOT; };
@@ -68,6 +67,10 @@
 		8AA8BE2C149CB8DF00132C6B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		8AA8BE3D149CC0D400132C6B /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		8AA8BE3E149CC0D400132C6B /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		8AA8BE44149CD41100132C6B /* TFHppleXPathResult.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TFHppleXPathResult.h; sourceTree = "<group>"; };
+		8AA8BE45149CD41100132C6B /* TFHppleXPathResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleXPathResult.m; sourceTree = "<group>"; };
+		8AA8BE48149CEF6200132C6B /* TFHppleElementAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElementAttribute.h; sourceTree = "<group>"; };
+		8AA8BE49149CEF6200132C6B /* TFHppleElementAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElementAttribute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +136,14 @@
 		8AA8BDAA149CA7E400132C6B /* Hpple */ = {
 			isa = PBXGroup;
 			children = (
-				8AA8BDE2149CA9B000132C6B /* XPath */,
 				8AA8BDDC149CA9A900132C6B /* TFHpple.h */,
 				8AA8BDDD149CA9A900132C6B /* TFHpple.m */,
 				8AA8BDDE149CA9A900132C6B /* TFHppleElement.h */,
 				8AA8BDDF149CA9A900132C6B /* TFHppleElement.m */,
+				8AA8BE48149CEF6200132C6B /* TFHppleElementAttribute.h */,
+				8AA8BE49149CEF6200132C6B /* TFHppleElementAttribute.m */,
+				8AA8BE44149CD41100132C6B /* TFHppleXPathResult.h */,
+				8AA8BE45149CD41100132C6B /* TFHppleXPathResult.m */,
 			);
 			path = Hpple;
 			sourceTree = "<group>";
@@ -163,15 +169,6 @@
 				8AA8BE1F149CB52100132C6B /* Supporting Files */,
 			);
 			path = HppleTests;
-			sourceTree = "<group>";
-		};
-		8AA8BDE2149CA9B000132C6B /* XPath */ = {
-			isa = PBXGroup;
-			children = (
-				8AA8BDE3149CA9BE00132C6B /* XPathQuery.h */,
-				8AA8BDE4149CA9BE00132C6B /* XPathQuery.m */,
-			);
-			name = XPath;
 			sourceTree = "<group>";
 		};
 		8AA8BDE6149CA9E100132C6B /* Supporting Files */ = {
@@ -315,7 +312,8 @@
 				8AA8BDE9149CA9FE00132C6B /* HppleAppDelegate.m in Sources */,
 				8AA8BDE0149CA9A900132C6B /* TFHpple.m in Sources */,
 				8AA8BDE1149CA9A900132C6B /* TFHppleElement.m in Sources */,
-				8AA8BDE5149CA9BE00132C6B /* XPathQuery.m in Sources */,
+				8AA8BE46149CD41100132C6B /* TFHppleXPathResult.m in Sources */,
+				8AA8BE4A149CEF6300132C6B /* TFHppleElementAttribute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

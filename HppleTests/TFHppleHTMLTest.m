@@ -56,17 +56,16 @@
 
 - (void) testInitializesWithHTMLData
 {
-  STAssertNotNil(doc.data, nil);
   STAssertTrue([doc isKindOfClass: [TFHpple class]], nil);
 }
 
 //  doc.search("//p[@class='posted']")
 - (void) testSearchesWithXPath
 {
-  NSArray * a = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
-  STAssertEquals((int)[a count], 2, nil);
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
+  STAssertEquals((int)[result count], 2, nil);
 
-  TFHppleElement * e = [a objectAtIndex:0];
+  TFHppleElement * e = [result objectAtIndex:0];
   STAssertTrue([e isKindOfClass: [TFHppleElement class]], nil);
 }
 
@@ -80,10 +79,10 @@
 
 - (void) testSearchesByNestedXPath
 {
-  NSArray * a = [doc searchWithXPathQuery:@"//div[@class='column']//strong"];
-  STAssertEquals((int)[a count], 5, nil);
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//div[@class='column']//strong"];
+  STAssertEquals((int)[result count], 5, nil);
   
-  TFHppleElement * e = [a objectAtIndex:0];
+  TFHppleElement * e = [result objectAtIndex:0];
   STAssertEqualObjects([e content], @"PeepCode", nil);
 }
 
@@ -100,6 +99,13 @@
   TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//a[@class='sponsor']"];
   
   STAssertEqualObjects([e objectForKey:@"href"], @"http://railsmachine.com/", nil);
+}
+
+- (void) testSearchesXPathFromSubNode
+{
+  TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//div[@id='footer']"];
+  STAssertEquals([[e searchWithXPathQuery:@"div[@class='column']"] count], (NSUInteger) 0, nil);
+  STAssertEquals([[e searchWithXPathQuery:@"div[@class='container']"] count], (NSUInteger) 1, nil);
 }
 
 //  doc.at("body")['onload']

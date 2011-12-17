@@ -28,15 +28,13 @@
 //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TFHpple.h"
-#import "XPathQuery.h"
 
 @implementation TFHpple
 
-@synthesize data, isXML;
-
 - (void) dealloc
 {
-  [data release];
+  if(xmlDocument != NULL) xmlFreeDoc(xmlDocument);
+  
   [super dealloc];
 }
 
@@ -45,10 +43,18 @@
   if (!(self = [super init])) {
     return nil;
   }
-
-  [theData retain];
-  data = theData;
-  isXML = isDataXML;
+  
+  if (isDataXML) {
+    xmlDocument = xmlReadMemory([theData bytes], (int)[theData length], "", NULL, XML_PARSE_RECOVER);
+  } else {
+    xmlDocument = htmlReadMemory([theData bytes], (int)[theData length], "", NULL, HTML_PARSE_NOWARNING | HTML_PARSE_NOERROR);
+  }
+  
+  if (xmlDocument == NULL) {
+    NSLog(@"Cannot parse document");
+    [self dealloc];
+    return nil;
+  }
 
   return self;
 }
@@ -78,31 +84,15 @@
 #pragma mark -
 
 // Returns all elements at xPath.
-- (NSArray *) searchWithXPathQuery:(NSString *)xPathOrCSS
+- (TFHppleXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS
 {
-  NSArray * detailNodes = nil;
-  if (isXML) {
-    detailNodes = PerformXMLXPathQuery(data, xPathOrCSS);
-  } else {
-    detailNodes = PerformHTMLXPathQuery(data, xPathOrCSS);
-  }
-
-  NSMutableArray * hppleElements = [NSMutableArray array];
-  for (id node in detailNodes) {
-    [hppleElements addObject:[TFHppleElement hppleElementWithNode:node]];
-  }
-  return hppleElements;
+  return [[[TFHppleXPathResult alloc] initWithXPathQuery:xPathOrCSS inDocument:xmlDocument] autorelease];
 }
 
 // Returns first element at xPath
 - (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS
 {
-  NSArray * elements = [self searchWithXPathQuery:xPathOrCSS];
-  if ([elements count] >= 1) {
-    return [elements objectAtIndex:0];
-  }
-
-  return nil;
+  return [[self searchWithXPathQuery:xPathOrCSS] firstElement];
 }
 
 @end

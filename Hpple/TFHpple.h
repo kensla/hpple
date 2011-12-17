@@ -30,16 +30,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import <libxml/HTMLparser.h>
+
 #import "TFHppleElement.h"
+#import "TFHppleXPathResult.h"
 
 @interface TFHpple : NSObject {
-@protected
-  NSData * data;
-  BOOL isXML;
+@private
+  xmlDocPtr xmlDocument;
 }
-
-@property (readonly) NSData* data;
-@property (readonly) BOOL isXML;
 
 - (id) initWithData:(NSData *)theData isXML:(BOOL)isDataXML;
 - (id) initWithXMLData:(NSData *)theData;
@@ -49,7 +48,7 @@
 + (TFHpple *) hppleWithXMLData:(NSData *)theData;
 + (TFHpple *) hppleWithHTMLData:(NSData *)theData;
 
-- (NSArray *) searchWithXPathQuery:(NSString *)xPathOrCSS;
+- (TFHppleXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS;
 - (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS;
 
 @end
