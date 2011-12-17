@@ -36,6 +36,7 @@
 - (void) dealloc
 {
   [parentResult release];
+  [parentNode release];
   
   [super dealloc];
 }
@@ -61,7 +62,7 @@
 - (id) initWithNode: (xmlNodePtr) theNode ofParentNode: (TFHppleElement*) parent {
   if (!(self = [self initWithNode:theNode]))
     return nil;
-  parentNode = [parentNode retain];
+  parentNode = [parent retain];
   return self;
 }
 
