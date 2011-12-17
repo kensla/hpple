@@ -63,7 +63,7 @@
 //  doc.search("//p[@class='posted']")
 - (void) testSearchesWithXPath
 {
-  NSArray * a = [doc search:@"//a[@class='sponsor']"];
+  NSArray * a = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
   STAssertEquals((int)[a count], 2, nil);
 
   TFHppleElement * e = [a objectAtIndex:0];
@@ -72,7 +72,7 @@
 
 - (void) testFindsFirstElementAtXPath
 {
-  TFHppleElement * e = [doc at:@"//a[@class='sponsor']"];
+  TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//a[@class='sponsor']"];
 
   STAssertEqualObjects([e content], @"RailsMachine", nil);
   STAssertEqualObjects([e tagName], @"a", nil);
@@ -80,7 +80,7 @@
 
 - (void) testSearchesByNestedXPath
 {
-  NSArray * a = [doc search:@"//div[@class='column']//strong"];
+  NSArray * a = [doc searchWithXPathQuery:@"//div[@class='column']//strong"];
   STAssertEquals((int)[a count], 5, nil);
   
   TFHppleElement * e = [a objectAtIndex:0];
@@ -89,7 +89,7 @@
 
 - (void) testPopulatesAttributes
 {
-  TFHppleElement * e = [doc at:@"//a[@class='sponsor']"];
+  TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//a[@class='sponsor']"];
   
   STAssertEqualObjects([[[e attributes] class] description], @"NSCFDictionary", nil);
   STAssertEqualObjects([[e attributes] objectForKey:@"href"], @"http://railsmachine.com/", nil);
@@ -97,7 +97,7 @@
 
 - (void) testProvidesEasyAccessToAttributes
 {
-  TFHppleElement * e = [doc at:@"//a[@class='sponsor']"];
+  TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//a[@class='sponsor']"];
   
   STAssertEqualObjects([e objectForKey:@"href"], @"http://railsmachine.com/", nil);
 }

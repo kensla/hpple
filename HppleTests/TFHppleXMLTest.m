@@ -63,7 +63,7 @@
 //  item/title,description,link
 - (void) testSearchesWithXPath
 {
-  NSArray * items = [doc search:@"//item"];
+  NSArray * items = [doc searchWithXPathQuery:@"//item"];
   STAssertEquals((int)[items count], 0x0f, nil);
 
   TFHppleElement * e = [items objectAtIndex:0];
@@ -72,7 +72,7 @@
 
 - (void) testFindsFirstElementAtXPath
 {
-  TFHppleElement * e = [doc at:@"//item/title"];
+  TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//item/title"];
 
   STAssertEqualObjects([e content], @"Objective-C for Rubyists", nil);
   STAssertEqualObjects([e tagName], @"title", nil);
@@ -80,7 +80,7 @@
 
 - (void) testSearchesByNestedXPath
 {
-  NSArray * elements = [doc search:@"//item/title"];
+  NSArray * elements = [doc searchWithXPathQuery:@"//item/title"];
   STAssertEquals((int)[elements count], 0x0f, nil); 
  
   TFHppleElement * e = [elements objectAtIndex:0];
@@ -89,7 +89,7 @@
 
 - (void) testAtSafelyReturnsNilIfEmpty
 {
-  TFHppleElement * e = [doc at:@"//a[@class='sponsor']"];
+  TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//a[@class='sponsor']"];
   
   STAssertEqualObjects(e, nil, nil);
 }
