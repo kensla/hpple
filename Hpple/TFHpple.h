@@ -36,15 +36,9 @@
 #import "TFXPathResult.h"
 
 @interface TFHpple : NSObject {
-@protected
-  NSData * data;
-  BOOL isXML;
 @private
   xmlDocPtr xmlDocument;
 }
-
-@property (readonly) NSData* data;
-@property (readonly) BOOL isXML;
 
 - (id) initWithData:(NSData *)theData isXML:(BOOL)isDataXML;
 - (id) initWithXMLData:(NSData *)theData;

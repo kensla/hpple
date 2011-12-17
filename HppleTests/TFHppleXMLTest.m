@@ -56,7 +56,6 @@
 
 - (void) testInitializesWithXMLData
 {
-  STAssertNotNil(doc.data, nil);
   STAssertTrue([doc isKindOfClass: [TFHpple class]], nil);
 }
 

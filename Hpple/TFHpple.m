@@ -31,12 +31,9 @@
 
 @implementation TFHpple
 
-@synthesize data, isXML;
-
 - (void) dealloc
 {
   if(xmlDocument != NULL) xmlFreeDoc(xmlDocument);
-  [data release];
   
   [super dealloc];
 }
@@ -46,10 +43,6 @@
   if (!(self = [super init])) {
     return nil;
   }
-
-  [theData retain];
-  data = theData;
-  isXML = isDataXML;
   
   if (isDataXML) {
     xmlDocument = xmlReadMemory([theData bytes], (int)[theData length], "", NULL, XML_PARSE_RECOVER);
