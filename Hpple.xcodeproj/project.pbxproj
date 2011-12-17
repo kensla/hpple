@@ -26,7 +26,7 @@
 		8AA8BE22149CB53300132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE20149CB53300132C6B /* InfoPlist.strings */; };
 		8AA8BE2D149CB8DF00132C6B /* feed.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE2B149CB8DF00132C6B /* feed.rss */; };
 		8AA8BE2E149CB8DF00132C6B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE2C149CB8DF00132C6B /* index.html */; };
-		8AA8BE46149CD41100132C6B /* TFXPathResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE45149CD41100132C6B /* TFXPathResult.m */; };
+		8AA8BE46149CD41100132C6B /* TFHppleXPathResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE45149CD41100132C6B /* TFHppleXPathResult.m */; };
 		8AA8BE4A149CEF6300132C6B /* TFHppleElementAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE49149CEF6200132C6B /* TFHppleElementAttribute.m */; };
 /* End PBXBuildFile section */
 
@@ -67,8 +67,8 @@
 		8AA8BE2C149CB8DF00132C6B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		8AA8BE3D149CC0D400132C6B /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		8AA8BE3E149CC0D400132C6B /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		8AA8BE44149CD41100132C6B /* TFXPathResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFXPathResult.h; sourceTree = "<group>"; };
-		8AA8BE45149CD41100132C6B /* TFXPathResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFXPathResult.m; sourceTree = "<group>"; };
+		8AA8BE44149CD41100132C6B /* TFHppleXPathResult.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TFHppleXPathResult.h; sourceTree = "<group>"; };
+		8AA8BE45149CD41100132C6B /* TFHppleXPathResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleXPathResult.m; sourceTree = "<group>"; };
 		8AA8BE48149CEF6200132C6B /* TFHppleElementAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElementAttribute.h; sourceTree = "<group>"; };
 		8AA8BE49149CEF6200132C6B /* TFHppleElementAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElementAttribute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,8 +142,8 @@
 				8AA8BDDF149CA9A900132C6B /* TFHppleElement.m */,
 				8AA8BE48149CEF6200132C6B /* TFHppleElementAttribute.h */,
 				8AA8BE49149CEF6200132C6B /* TFHppleElementAttribute.m */,
-				8AA8BE44149CD41100132C6B /* TFXPathResult.h */,
-				8AA8BE45149CD41100132C6B /* TFXPathResult.m */,
+				8AA8BE44149CD41100132C6B /* TFHppleXPathResult.h */,
+				8AA8BE45149CD41100132C6B /* TFHppleXPathResult.m */,
 			);
 			path = Hpple;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 				8AA8BDE9149CA9FE00132C6B /* HppleAppDelegate.m in Sources */,
 				8AA8BDE0149CA9A900132C6B /* TFHpple.m in Sources */,
 				8AA8BDE1149CA9A900132C6B /* TFHppleElement.m in Sources */,
-				8AA8BE46149CD41100132C6B /* TFXPathResult.m in Sources */,
+				8AA8BE46149CD41100132C6B /* TFHppleXPathResult.m in Sources */,
 				8AA8BE4A149CEF6300132C6B /* TFHppleElementAttribute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

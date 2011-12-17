@@ -62,7 +62,7 @@
 //  doc.search("//p[@class='posted']")
 - (void) testSearchesWithXPath
 {
-  TFXPathResult * result = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
   STAssertEquals((int)[result count], 2, nil);
 
   TFHppleElement * e = [result objectAtIndex:0];
@@ -79,7 +79,7 @@
 
 - (void) testSearchesByNestedXPath
 {
-  TFXPathResult * result = [doc searchWithXPathQuery:@"//div[@class='column']//strong"];
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//div[@class='column']//strong"];
   STAssertEquals((int)[result count], 5, nil);
   
   TFHppleElement * e = [result objectAtIndex:0];

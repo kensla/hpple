@@ -30,21 +30,21 @@
 #import <Foundation/Foundation.h>
 #import <libxml/xpath.h>
 
-#import "TFXPathResult.h"
+#import "TFHppleXPathResult.h"
 
-@class TFXPathResult;
+@class TFHppleXPathResult;
 
 @interface TFHppleElement : NSObject {
 @private
   xmlNodePtr node;
-  TFXPathResult* parentResult;
+  TFHppleXPathResult* parentResult;
   TFHppleElement* parentNode;
 }
 
-- (id) initWithNode: (xmlNodePtr) node ofXPathResult: (TFXPathResult*) result;
+- (id) initWithNode: (xmlNodePtr) node ofXPathResult: (TFHppleXPathResult*) result;
 - (id) initWithNode: (xmlNodePtr) node ofParentNode: (TFHppleElement*) parent;
 
-+ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofXPathResult: (TFXPathResult*) result;
++ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofXPathResult: (TFHppleXPathResult*) result;
 + (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofParentNode: (TFHppleElement*) parent;
 
 #pragma  mark -
@@ -81,7 +81,7 @@
 
 #pragma  mark -
 
-- (TFXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS;
+- (TFHppleXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS;
 - (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS;
 
 @end

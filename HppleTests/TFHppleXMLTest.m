@@ -62,7 +62,7 @@
 //  item/title,description,link
 - (void) testSearchesWithXPath
 {
-  TFXPathResult * result = [doc searchWithXPathQuery:@"//item"];
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//item"];
   STAssertEquals((int)[result count], 0x0f, nil);
 
   TFHppleElement * e = [result objectAtIndex:0];
@@ -79,7 +79,7 @@
 
 - (void) testSearchesByNestedXPath
 {
-  TFXPathResult * result = [doc searchWithXPathQuery:@"//item/title"];
+  TFHppleXPathResult * result = [doc searchWithXPathQuery:@"//item/title"];
   STAssertEquals((int)[result count], 0x0f, nil); 
  
   TFHppleElement * e = [result objectAtIndex:0];

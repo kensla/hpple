@@ -14,7 +14,7 @@
 
 @class TFHppleElement;
 
-@interface TFXPathResult : NSObject {
+@interface TFHppleXPathResult : NSObject {
 @private
   xmlXPathObjectPtr xPathObject;
 }

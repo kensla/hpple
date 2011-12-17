@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TFXPathResult.h"
+#import "TFHppleXPathResult.h"
 
-@implementation TFXPathResult
+@implementation TFHppleXPathResult
 
 - initWithXPathObject: (xmlXPathObjectPtr) object {
   if (!(self = [super init])) {

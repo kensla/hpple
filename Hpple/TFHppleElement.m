@@ -52,7 +52,7 @@
   return self;
 }
 
-- (id) initWithNode: (xmlNodePtr) theNode ofXPathResult: (TFXPathResult*) result {
+- (id) initWithNode: (xmlNodePtr) theNode ofXPathResult: (TFHppleXPathResult*) result {
   if (!(self = [self initWithNode:theNode]))
     return nil;
   parentResult = [result retain];
@@ -66,7 +66,7 @@
   return self;
 }
 
-+ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofXPathResult: (TFXPathResult*) result {
++ (TFHppleElement*) hppleElementWithNode: (xmlNodePtr) node ofXPathResult: (TFHppleXPathResult*) result {
   return [[[self alloc] initWithNode: node ofXPathResult: result] autorelease];
 }
 
@@ -168,7 +168,7 @@
 
 #pragma  mark -
 
-- (TFXPathResult *) searchWithXPathQuery:(NSString *)query {
+- (TFHppleXPathResult *) searchWithXPathQuery:(NSString *)query {
   // create XPath context
   xmlXPathContextPtr context = xmlXPathNewContext(node->doc);
   if (context == NULL) {
@@ -186,7 +186,7 @@
     return nil;
   }
   
-  TFXPathResult* result = [[[TFXPathResult alloc] initWithXPathObject:object] autorelease];
+  TFHppleXPathResult* result = [[[TFHppleXPathResult alloc] initWithXPathObject:object] autorelease];
   xmlXPathFreeContext(context);
   
   return result;

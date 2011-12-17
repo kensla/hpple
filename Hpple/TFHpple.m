@@ -84,9 +84,9 @@
 #pragma mark -
 
 // Returns all elements at xPath.
-- (TFXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS
+- (TFHppleXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS
 {
-  return [[[TFXPathResult alloc] initWithXPathQuery:xPathOrCSS inDocument:xmlDocument] autorelease];
+  return [[[TFHppleXPathResult alloc] initWithXPathQuery:xPathOrCSS inDocument:xmlDocument] autorelease];
 }
 
 // Returns first element at xPath

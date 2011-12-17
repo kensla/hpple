@@ -33,7 +33,7 @@
 #import <libxml/HTMLparser.h>
 
 #import "TFHppleElement.h"
-#import "TFXPathResult.h"
+#import "TFHppleXPathResult.h"
 
 @interface TFHpple : NSObject {
 @private
@@ -48,7 +48,7 @@
 + (TFHpple *) hppleWithXMLData:(NSData *)theData;
 + (TFHpple *) hppleWithHTMLData:(NSData *)theData;
 
-- (TFXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS;
+- (TFHppleXPathResult *) searchWithXPathQuery:(NSString *)xPathOrCSS;
 - (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS;
 
 @end
