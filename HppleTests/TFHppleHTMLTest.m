@@ -27,12 +27,13 @@
 //  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GTMSenTestCase.h"
+#import <SenTestingKit/SenTestingKit.h>
+
 #import "TFHpple.h"
 
 #define TEST_DOCUMENT_PATH @"UnitTesting/TestData/index.html"
 
-@interface TFHppleHTMLTest : GTMTestCase
+@interface TFHppleHTMLTest : SenTestCase
 {
   TFHpple * doc;
 }
