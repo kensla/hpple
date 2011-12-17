@@ -31,7 +31,7 @@
 
 #import "TFHpple.h"
 
-#define TEST_DOCUMENT_PATH @"UnitTesting/TestData/feed.rss"
+#define TEST_DOCUMENT_PATH [[NSBundle mainBundle] pathForResource:@"feed" ofType: @"rss"]
 
 @interface TFHppleXMLTest : SenTestCase
 {

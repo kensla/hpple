@@ -31,7 +31,7 @@
 
 #import "TFHpple.h"
 
-#define TEST_DOCUMENT_PATH @"UnitTesting/TestData/index.html"
+#define TEST_DOCUMENT_PATH [[NSBundle mainBundle] pathForResource:@"index" ofType: @"html"]
 
 @interface TFHppleHTMLTest : SenTestCase
 {

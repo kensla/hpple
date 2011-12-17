@@ -25,6 +25,8 @@
 		8AA8BE16149CB04A00132C6B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA8BDFF149CADA900132C6B /* libxml2.dylib */; };
 		8AA8BE1E149CB49300132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE1C149CB49300132C6B /* InfoPlist.strings */; };
 		8AA8BE22149CB53300132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE20149CB53300132C6B /* InfoPlist.strings */; };
+		8AA8BE2D149CB8DF00132C6B /* feed.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE2B149CB8DF00132C6B /* feed.rss */; };
+		8AA8BE2E149CB8DF00132C6B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE2C149CB8DF00132C6B /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		8AA8BE1D149CB49300132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = App/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		8AA8BE21149CB53300132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8AA8BE23149CB53B00132C6B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AA8BE2B149CB8DF00132C6B /* feed.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = feed.rss; sourceTree = "<group>"; };
+		8AA8BE2C149CB8DF00132C6B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 			children = (
 				8AA8BDF8149CAB4E00132C6B /* TFHppleHTMLTest.m */,
 				8AA8BDF9149CAB4E00132C6B /* TFHppleXMLTest.m */,
+				8AA8BE2A149CB8DF00132C6B /* TestData */,
 				8AA8BE1F149CB52100132C6B /* Supporting Files */,
 			);
 			path = HppleTests;
@@ -183,6 +188,15 @@
 				8AA8BE20149CB53300132C6B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8AA8BE2A149CB8DF00132C6B /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				8AA8BE2B149CB8DF00132C6B /* feed.rss */,
+				8AA8BE2C149CB8DF00132C6B /* index.html */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +279,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AA8BE22149CB53300132C6B /* InfoPlist.strings in Resources */,
+				8AA8BE2D149CB8DF00132C6B /* feed.rss in Resources */,
+				8AA8BE2E149CB8DF00132C6B /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
