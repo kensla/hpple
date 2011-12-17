@@ -31,6 +31,7 @@
 #import <Foundation/Foundation.h>
 
 #import <libxml/HTMLparser.h>
+#import <libxml/xpath.h>
 
 #import "TFHppleElement.h"
 
@@ -40,6 +41,7 @@
   BOOL isXML;
 @private
   xmlDocPtr xmlDocument;
+  xmlXPathContextPtr xpathContext;
 }
 
 @property (readonly) NSData* data;

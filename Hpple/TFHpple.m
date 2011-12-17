@@ -32,10 +32,18 @@
 
 @implementation TFHpple
 
+- (xmlXPathContextPtr) getOrCreateXPathContext {
+  if (xpathContext == NULL) {
+    xpathContext = xmlXPathNewContext(xmlDocument);
+  }
+  return xpathContext;
+}
+
 @synthesize data, isXML;
 
 - (void) dealloc
 {
+  if (xpathContext != NULL) xmlXPathFreeContext(xpathContext);
   xmlFreeDoc(xmlDocument);
   [data release];
   
@@ -63,6 +71,8 @@
     [self dealloc];
     return nil;
   }
+  
+  xpathContext = NULL;
 
   return self;
 }
@@ -94,6 +104,12 @@
 // Returns all elements at xPath.
 - (NSArray *) searchWithXPathQuery:(NSString *)xPathOrCSS
 {
+  xmlXPathContextPtr context = [self getOrCreateXPathContext];
+  if (context == NULL) {
+    NSLog(@"Unable to create XPath context");
+    return nil;
+  }
+  
   NSArray * detailNodes = nil;
   if (isXML) {
     detailNodes = PerformXMLXPathQuery(data, xPathOrCSS);
