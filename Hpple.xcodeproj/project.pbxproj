@@ -61,7 +61,7 @@
 		8AA8BDFF149CADA900132C6B /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		8AA8BE1D149CB49300132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = App/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		8AA8BE21149CB53300132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8AA8BE23149CB53B00132C6B /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
+		8AA8BE23149CB53B00132C6B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +179,7 @@
 		8AA8BE1F149CB52100132C6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8AA8BE23149CB53B00132C6B /* Test-Info.plist */,
+				8AA8BE23149CB53B00132C6B /* Info.plist */,
 				8AA8BE20149CB53300132C6B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -415,7 +415,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hpple_Prefix.pch;
-				INFOPLIST_FILE = "HppleTests/Test-Info.plist";
+				INFOPLIST_FILE = HppleTests/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -432,7 +432,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hpple_Prefix.pch;
-				INFOPLIST_FILE = "HppleTests/Test-Info.plist";
+				INFOPLIST_FILE = HppleTests/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
