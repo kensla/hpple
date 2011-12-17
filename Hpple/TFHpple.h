@@ -33,10 +33,13 @@
 #import "TFHppleElement.h"
 
 @interface TFHpple : NSObject {
-@private
+@protected
   NSData * data;
   BOOL isXML;
 }
+
+@property (readonly) NSData* data;
+@property (readonly) BOOL isXML;
 
 - (id) initWithData:(NSData *)theData isXML:(BOOL)isDataXML;
 - (id) initWithXMLData:(NSData *)theData;
@@ -48,7 +51,5 @@
 
 - (NSArray *) searchWithXPathQuery:(NSString *)xPathOrCSS;
 - (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS;
-
-@property (retain) NSData * data;
 
 @end

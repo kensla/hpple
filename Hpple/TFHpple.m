@@ -32,7 +32,7 @@
 
 @implementation TFHpple
 
-@synthesize data;
+@synthesize data, isXML;
 
 - (void) dealloc
 {
