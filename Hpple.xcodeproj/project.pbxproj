@@ -66,6 +66,8 @@
 		8AA8BE23149CB53B00132C6B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AA8BE2B149CB8DF00132C6B /* feed.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = feed.rss; sourceTree = "<group>"; };
 		8AA8BE2C149CB8DF00132C6B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		8AA8BE3D149CC0D400132C6B /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		8AA8BE3E149CC0D400132C6B /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,8 @@
 		8AA8BD95149CA7E400132C6B = {
 			isa = PBXGroup;
 			children = (
+				8AA8BE3D149CC0D400132C6B /* LICENSE.txt */,
+				8AA8BE3E149CC0D400132C6B /* README.markdown */,
 				8AA8BDAA149CA7E400132C6B /* Hpple */,
 				8AA8BDAB149CA7E400132C6B /* App */,
 				8AA8BDC2149CA7E500132C6B /* HppleTests */,
