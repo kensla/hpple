@@ -79,13 +79,12 @@
 {
   xmlChar* content = xmlNodeGetContent(node);
   NSString* result = [NSString stringWithCString: (char*) content encoding: NSUTF8StringEncoding];
-  xmlFree(content); // TODO: is this ok? does NSString copy the data? maybe we should directly use node->content
+  xmlFree(content);
   return result;
 }
 
 - (NSString *) tagName
 {
-  // TODO: is this ok? does NSString copy the data?
   return [NSString stringWithCString: (char*) node->name encoding: NSUTF8StringEncoding];
 }
 
@@ -127,7 +126,7 @@
   xmlChar* value = xmlGetProp(node, BAD_CAST [theKey cStringUsingEncoding:NSUTF8StringEncoding]);
   if(value == NULL) return nil;
   NSString* str = [NSString stringWithCString: (char*) value encoding:NSUTF8StringEncoding];
-  xmlFree(value); // TODO: is this ok? does NSString copy the data?
+  xmlFree(value);
   return str;
 }
 

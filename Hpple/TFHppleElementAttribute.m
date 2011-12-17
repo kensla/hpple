@@ -34,14 +34,13 @@
 #pragma mark -
 
 - (NSString*) name {
-  // TODO: is this ok? does NSString copy the data?
   return [NSString stringWithCString:(char*)attribute->name encoding:NSUTF8StringEncoding];
 }
 
 - (NSString*) value {
   xmlChar* content = xmlNodeGetContent(attribute->children);
   NSString* result = [NSString stringWithCString: (char*) content encoding: NSUTF8StringEncoding];
-  xmlFree(content); // is this ok? does NSString copy the data? maybe we should directly use attribute->children->content
+  xmlFree(content);
   return result;
 }
 
