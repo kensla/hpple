@@ -30,12 +30,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import <libxml/HTMLparser.h>
+
 #import "TFHppleElement.h"
 
 @interface TFHpple : NSObject {
 @protected
   NSData * data;
   BOOL isXML;
+@private
+  xmlDocPtr xmlDocument;
 }
 
 @property (readonly) NSData* data;

@@ -36,7 +36,9 @@
 
 - (void) dealloc
 {
+  xmlFreeDoc(xmlDocument);
   [data release];
+  
   [super dealloc];
 }
 
@@ -49,6 +51,18 @@
   [theData retain];
   data = theData;
   isXML = isDataXML;
+  
+  if (isDataXML) {
+    xmlDocument = xmlReadMemory([theData bytes], (int)[theData length], "", NULL, XML_PARSE_RECOVER);
+  } else {
+    xmlDocument = htmlReadMemory([theData bytes], (int)[theData length], "", NULL, HTML_PARSE_NOWARNING | HTML_PARSE_NOERROR);
+  }
+  
+  if (xmlDocument == NULL) {
+    NSLog(@"Cannot parse document");
+    [self dealloc];
+    return nil;
+  }
 
   return self;
 }
