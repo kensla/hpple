@@ -102,6 +102,13 @@
   STAssertEqualObjects([e objectForKey:@"href"], @"http://railsmachine.com/", nil);
 }
 
+- (void) testSearchesXPathFromSubNode
+{
+  TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//div[@id='footer']"];
+  STAssertEquals([[e searchWithXPathQuery:@"div[@class='column']"] count], (NSUInteger) 0, nil);
+  STAssertEquals([[e searchWithXPathQuery:@"div[@class='container']"] count], (NSUInteger) 1, nil);
+}
+
 //  doc.at("body")['onload']
 
 
