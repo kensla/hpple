@@ -57,7 +57,7 @@
 - (void) testInitializesWithHTMLData
 {
   STAssertNotNil(doc.data, nil);
-  STAssertEqualObjects([[doc class] description], @"TFHpple", nil);
+  STAssertTrue([doc isKindOfClass: [TFHpple class]], nil);
 }
 
 //  doc.search("//p[@class='posted']")
@@ -67,7 +67,7 @@
   STAssertEquals((int)[a count], 2, nil);
 
   TFHppleElement * e = [a objectAtIndex:0];
-  STAssertEqualObjects([[e class] description], @"TFHppleElement", nil);
+  STAssertTrue([e isKindOfClass: [TFHppleElement class]], nil);
 }
 
 - (void) testFindsFirstElementAtXPath
@@ -91,7 +91,7 @@
 {
   TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"//a[@class='sponsor']"];
   
-  STAssertEqualObjects([[[e attributes] class] description], @"NSCFDictionary", nil);
+  STAssertTrue([[e attributes] isKindOfClass: [NSDictionary class]], nil);
   STAssertEqualObjects([[e attributes] objectForKey:@"href"], @"http://railsmachine.com/", nil);
 }
 

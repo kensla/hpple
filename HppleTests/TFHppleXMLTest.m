@@ -57,7 +57,7 @@
 - (void) testInitializesWithXMLData
 {
   STAssertNotNil(doc.data, nil);
-  STAssertEqualObjects([[doc class] description], @"TFHpple", nil);
+  STAssertTrue([doc isKindOfClass: [TFHpple class]], nil);
 }
 
 //  item/title,description,link
@@ -67,7 +67,7 @@
   STAssertEquals((int)[items count], 0x0f, nil);
 
   TFHppleElement * e = [items objectAtIndex:0];
-  STAssertEqualObjects([[e class] description], @"TFHppleElement", nil);
+  STAssertTrue([e isKindOfClass: [TFHppleElement class]], nil);
 }
 
 - (void) testFindsFirstElementAtXPath
