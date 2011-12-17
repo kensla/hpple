@@ -20,14 +20,14 @@
 		8AA8BDED149CAA5900132C6B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BDEC149CAA5900132C6B /* MainWindow.xib */; };
 		8AA8BDFE149CAD8600132C6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDFD149CAD8600132C6B /* main.m */; };
 		8AA8BE00149CADA900132C6B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA8BDFF149CADA900132C6B /* libxml2.dylib */; };
-		8AA8BE03149CADDC00132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE01149CADDC00132C6B /* InfoPlist.strings */; };
 		8AA8BE0E149CB03C00132C6B /* TFHppleHTMLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDF8149CAB4E00132C6B /* TFHppleHTMLTest.m */; };
 		8AA8BE0F149CB03C00132C6B /* TFHppleXMLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BDF9149CAB4E00132C6B /* TFHppleXMLTest.m */; };
 		8AA8BE12149CB03C00132C6B /* GTMIPhoneUnitTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE07149CAECC00132C6B /* GTMIPhoneUnitTestDelegate.m */; };
 		8AA8BE13149CB03C00132C6B /* GTMIPhoneUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE08149CAECC00132C6B /* GTMIPhoneUnitTestMain.m */; };
 		8AA8BE15149CB03C00132C6B /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8BE0A149CAECC00132C6B /* GTMSenTestCase.m */; };
 		8AA8BE16149CB04A00132C6B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA8BDFF149CADA900132C6B /* libxml2.dylib */; };
-		8AA8BE1A149CB24000132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE18149CB24000132C6B /* InfoPlist.strings */; };
+		8AA8BE1E149CB49300132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE1C149CB49300132C6B /* InfoPlist.strings */; };
+		8AA8BE22149CB53300132C6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8BE20149CB53300132C6B /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,29 +48,29 @@
 		8AA8BDBB149CA7E500132C6B /* HppleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HppleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA8BDBC149CA7E500132C6B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8AA8BDD9149CA90200132C6B /* Hpple_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hpple_Prefix.pch; sourceTree = SOURCE_ROOT; };
-		8AA8BDDA149CA90200132C6B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		8AA8BDDA149CA90200132C6B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = App/Info.plist; sourceTree = SOURCE_ROOT; };
 		8AA8BDDC149CA9A900132C6B /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Hpple/TFHpple.h; sourceTree = SOURCE_ROOT; };
 		8AA8BDDD149CA9A900132C6B /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Hpple/TFHpple.m; sourceTree = SOURCE_ROOT; };
 		8AA8BDDE149CA9A900132C6B /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Hpple/TFHppleElement.h; sourceTree = SOURCE_ROOT; };
 		8AA8BDDF149CA9A900132C6B /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = Hpple/TFHppleElement.m; sourceTree = SOURCE_ROOT; };
 		8AA8BDE3149CA9BE00132C6B /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Hpple/XPath/XPathQuery.h; sourceTree = SOURCE_ROOT; };
 		8AA8BDE4149CA9BE00132C6B /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Hpple/XPath/XPathQuery.m; sourceTree = SOURCE_ROOT; };
-		8AA8BDE7149CA9FE00132C6B /* HppleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HppleAppDelegate.h; path = Classes/HppleAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		8AA8BDE8149CA9FE00132C6B /* HppleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HppleAppDelegate.m; path = Classes/HppleAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		8AA8BDEC149CAA5900132C6B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = SOURCE_ROOT; };
-		8AA8BDF2149CAB2E00132C6B /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Test-Info.plist"; path = "HppleTests/Test-Info.plist"; sourceTree = SOURCE_ROOT; };
+		8AA8BDE7149CA9FE00132C6B /* HppleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HppleAppDelegate.h; path = App/HppleAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		8AA8BDE8149CA9FE00132C6B /* HppleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HppleAppDelegate.m; path = App/HppleAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		8AA8BDEC149CAA5900132C6B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = App/en.lproj/MainWindow.xib; sourceTree = SOURCE_ROOT; };
 		8AA8BDF8149CAB4E00132C6B /* TFHppleHTMLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleHTMLTest.m; path = HppleTests/TFHppleHTMLTest.m; sourceTree = SOURCE_ROOT; };
 		8AA8BDF9149CAB4E00132C6B /* TFHppleXMLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleXMLTest.m; path = HppleTests/TFHppleXMLTest.m; sourceTree = SOURCE_ROOT; };
-		8AA8BDFD149CAD8600132C6B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		8AA8BDFD149CAD8600132C6B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = App/main.m; sourceTree = SOURCE_ROOT; };
 		8AA8BDFF149CADA900132C6B /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		8AA8BE02149CADDC00132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		8AA8BE05149CAECC00132C6B /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = HppleTests/GTM/GTMDefines.h; sourceTree = SOURCE_ROOT; };
 		8AA8BE06149CAECC00132C6B /* GTMIPhoneUnitTestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMIPhoneUnitTestDelegate.h; path = HppleTests/GTM/GTMIPhoneUnitTestDelegate.h; sourceTree = SOURCE_ROOT; };
 		8AA8BE07149CAECC00132C6B /* GTMIPhoneUnitTestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMIPhoneUnitTestDelegate.m; path = HppleTests/GTM/GTMIPhoneUnitTestDelegate.m; sourceTree = SOURCE_ROOT; };
 		8AA8BE08149CAECC00132C6B /* GTMIPhoneUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMIPhoneUnitTestMain.m; path = HppleTests/GTM/GTMIPhoneUnitTestMain.m; sourceTree = SOURCE_ROOT; };
 		8AA8BE09149CAECC00132C6B /* GTMSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMSenTestCase.h; path = HppleTests/GTM/GTMSenTestCase.h; sourceTree = SOURCE_ROOT; };
 		8AA8BE0A149CAECC00132C6B /* GTMSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMSenTestCase.m; path = HppleTests/GTM/GTMSenTestCase.m; sourceTree = SOURCE_ROOT; };
-		8AA8BE19149CB24000132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8AA8BE1D149CB49300132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = App/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		8AA8BE21149CB53300132C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8AA8BE23149CB53B00132C6B /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,9 +146,10 @@
 		8AA8BDAB149CA7E400132C6B /* App */ = {
 			isa = PBXGroup;
 			children = (
-				8AA8BDEB149CAA2900132C6B /* Classes */,
-				8AA8BDE6149CA9E100132C6B /* Other Sources */,
-				8AA8BDEA149CAA1300132C6B /* Resources */,
+				8AA8BDE7149CA9FE00132C6B /* HppleAppDelegate.h */,
+				8AA8BDE8149CA9FE00132C6B /* HppleAppDelegate.m */,
+				8AA8BDEC149CAA5900132C6B /* MainWindow.xib */,
+				8AA8BDE6149CA9E100132C6B /* Supporting Files */,
 			);
 			name = App;
 			path = Hpple;
@@ -160,7 +161,7 @@
 				8AA8BDF8149CAB4E00132C6B /* TFHppleHTMLTest.m */,
 				8AA8BDF9149CAB4E00132C6B /* TFHppleXMLTest.m */,
 				8AA8BE04149CAEC100132C6B /* GTM */,
-				8AA8BDEE149CAA6500132C6B /* Resources */,
+				8AA8BE1F149CB52100132C6B /* Supporting Files */,
 			);
 			path = HppleTests;
 			sourceTree = "<group>";
@@ -174,41 +175,15 @@
 			name = XPath;
 			sourceTree = "<group>";
 		};
-		8AA8BDE6149CA9E100132C6B /* Other Sources */ = {
+		8AA8BDE6149CA9E100132C6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8AA8BDDA149CA90200132C6B /* Info.plist */,
+				8AA8BE1C149CB49300132C6B /* InfoPlist.strings */,
 				8AA8BDFD149CAD8600132C6B /* main.m */,
 				8AA8BDD9149CA90200132C6B /* Hpple_Prefix.pch */,
 			);
-			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		8AA8BDEA149CAA1300132C6B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8AA8BDEC149CAA5900132C6B /* MainWindow.xib */,
-				8AA8BDDA149CA90200132C6B /* Info.plist */,
-				8AA8BE01149CADDC00132C6B /* InfoPlist.strings */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		8AA8BDEB149CAA2900132C6B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8AA8BDE7149CA9FE00132C6B /* HppleAppDelegate.h */,
-				8AA8BDE8149CA9FE00132C6B /* HppleAppDelegate.m */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
-		8AA8BDEE149CAA6500132C6B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8AA8BDF2149CAB2E00132C6B /* Test-Info.plist */,
-				8AA8BE18149CB24000132C6B /* InfoPlist.strings */,
-			);
-			name = Resources;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8AA8BE04149CAEC100132C6B /* GTM */ = {
@@ -222,6 +197,15 @@
 				8AA8BE0A149CAECC00132C6B /* GTMSenTestCase.m */,
 			);
 			name = GTM;
+			sourceTree = "<group>";
+		};
+		8AA8BE1F149CB52100132C6B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8AA8BE23149CB53B00132C6B /* Test-Info.plist */,
+				8AA8BE20149CB53300132C6B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AA8BDED149CAA5900132C6B /* MainWindow.xib in Resources */,
-				8AA8BE03149CADDC00132C6B /* InfoPlist.strings in Resources */,
+				8AA8BE1E149CB49300132C6B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AA8BE1A149CB24000132C6B /* InfoPlist.strings in Resources */,
+				8AA8BE22149CB53300132C6B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,18 +345,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8AA8BE01149CADDC00132C6B /* InfoPlist.strings */ = {
+		8AA8BE1C149CB49300132C6B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8AA8BE02149CADDC00132C6B /* en */,
+				8AA8BE1D149CB49300132C6B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		8AA8BE18149CB24000132C6B /* InfoPlist.strings */ = {
+		8AA8BE20149CB53300132C6B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8AA8BE19149CB24000132C6B /* en */,
+				8AA8BE21149CB53300132C6B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -429,7 +413,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hpple_Prefix.pch;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -441,7 +425,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hpple_Prefix.pch;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
