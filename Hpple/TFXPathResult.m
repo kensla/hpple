@@ -81,7 +81,7 @@
 
 - (TFHppleElement*) firstElement {
   if (self.isEmpty) return nil;
-  else return [self objectAtIndex:0];
+  else return [self unsafeObjectAtIndex:0];
 }
 
 @end
