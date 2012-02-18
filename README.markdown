@@ -23,7 +23,7 @@ Inspired by why the lucky stiff's [Hpricot](https://github.com/hpricot/hpricot).
 
 # USAGE
 
-<pre>
+```Objective-C
 #import "TFHpple.h"
 
 NSString * pathPath = [[NSBundle mainBundle] pathForResource:@"index" ofType: @"html"];
@@ -53,7 +53,7 @@ NSArray* arr = [result array];
 forin(TFHppleElement* node in arr) {
   NSLog(@"%@", node.tagName);
 }
-</pre>
+```
 
 See TFHppleHTMLTest.m and TFHppleXMLTest.m in HppleTests for more examples.
 
